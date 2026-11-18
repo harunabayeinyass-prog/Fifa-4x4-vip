@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FIFA 4x4 VIP AI</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="top"><div class="brand">⚽ FIFA 4x4 <span>VIP AI</span></div><select id="language" aria-label="Language"><option value="en">English</option><option value="fr">Français</option><option value="ha">Hausa</option></select></header>
+  <main>
+    <section class="hero"><p class="eyebrow">PRIVATE PREDICTION PLATFORM</p><h1>FIFA 4x4 <em>VIP AI</em></h1><p>Match analysis, market probabilities and historical results in one place.</p></section>
+    <section id="configNotice" class="notice">Website setup required: add your Supabase project URL and publishable/anon key in <code>app.js</code> before using login.</section>
+    <section id="authPanel" class="panel">
+      <h2>Member access</h2>
+      <p class="muted">Sign in, or request a VIP account. New accounts require administrator approval.</p>
+      <label>Email<input id="email" type="email" autocomplete="email" placeholder="you@example.com"></label>
+      <label>Password<input id="password" type="password" autocomplete="current-password" placeholder="Your password"></label>
+      <div class="actions"><button id="signIn">Sign in</button><button id="signUp" class="secondary">Request VIP access</button></div>
+      <p id="authMessage" class="message" aria-live="polite"></p>
+    </section>
+    <section id="appPanel" class="panel hidden">
+      <div class="memberbar"><div><h2>Prediction workspace</h2><p id="memberStatus" class="muted"></p></div><button id="signOut" class="secondary">Sign out</button></div>
+      <div id="pendingNotice" class="notice hidden">Your VIP access is awaiting administrator approval.</div>
+      <div id="approvedArea" class="hidden">
+        <h3>Match odds</h3>
+        <div class="formgrid">
+          <label>Home team<input id="homeTeam" placeholder="Team A"></label>
+          <label>Away team<input id="awayTeam" placeholder="Team B"></label>
+          <label>Home win odds<input id="homeOdds" type="number" min="1.01" step="0.01" placeholder="2.10"></label>
+          <label>Draw odds<input id="drawOdds" type="number" min="1.01" step="0.01" placeholder="3.50"></label>
+          <label>Away win odds<input id="awayOdds" type="number" min="1.01" step="0.01" placeholder="2.80"></label>
+          <label>Over 13.5 odds<input id="overOdds" type="number" min="1.01" step="0.01" placeholder="1.90"></label>
+          <label>Under 13.5 odds<input id="underOdds" type="number" min="1.01" step="0.01" placeholder="1.90"></label>
+        </div>
+        <button id="analyse">Calculate market probabilities</button>
+        <div id="predictionResult" class="result hidden"></div>
+        <p class="muted small">These are bookmaker-implied market probabilities, not guaranteed outcomes or a trained AI prediction.</p>
+      </div>
+    </section>
+  </main>
+  <footer>FIFA 4x4 VIP AI · Testing version</footer>
+</body>
+</html>
